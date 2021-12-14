@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+header('Content-Description: File Transfer');
+header('Content-Type: application/zip');
+header('Content-Disposition:attachment; filename=filename.zip');
+header('Content-Length:'.filesize('filename.zip'));
+readfile('path/filename.zip');
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>header:zip</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
