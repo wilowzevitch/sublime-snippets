@@ -1,0 +1,48 @@
+<snippet>
+	<content><![CDATA[
+<?php
+
+/**
+ * @file
+ * Contains Drupal\\${1:mon_module}\Plugin\Block\\${2:MonBlock}
+ */
+
+namespace Drupal\\${1:mon_module}\Plugin\Block;
+
+use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Provides a '${2:MonBlock}' block.
+ *
+ * @Block(
+ *  id = "${2:MonBlock}",
+ *  category = @Translation("Custom")
+ *)
+ */
+class ${2:MonBlock} extends BlockBase {
+
+	public function build() {
+		return [
+		];
+	}
+
+	public function blockForm($form, FormStateInterface $form_state) {
+		$form['mon_texte'] = [
+			'#type' => 'textfield',
+			'#title' => $this->t('Mon texte'),
+			'#default_value' => isset($this->configuration['mon_texte']) ? $this->configuration['mon_texte'] : '',
+		];
+		return $form;
+	}
+
+	public function blockSubmit($form, FormStateInterface $form_state) {
+		$this->configuration['mon_texte'] = $form_state->getValue('mon_texte');
+	}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>drupal:block</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
