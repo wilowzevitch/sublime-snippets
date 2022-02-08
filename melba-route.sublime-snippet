@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+Melba::isRequest('#${1:route}\$#', function(\$regex) {
+	${2:...content}
+}, false);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>melba:route</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>text.html</scope> -->
+</snippet>
