@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+import PropTypes from 'prop-types'
+/* CSS */
+import './${1:componentName}.scss'
+
+const ${1:componentName} = ({ }) => (
+	// JSX
+)
+
+
+/* PropTypes */
+${1:componentName}.propTypes = {
+	// PropTypes
+}
+export default ${1:componentName}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>react:component</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.js, text.plain</scope>
+</snippet>
