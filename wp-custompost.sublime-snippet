@@ -1,0 +1,55 @@
+<snippet>
+	<content><![CDATA[
+function ${1:custom_post}_type() {
+
+	// On rentre les différentes dénominations de notre custom post type qui seront affichées dans l'administration
+	\$labels = array(
+		// Le nom au pluriel
+		'name'                => _x( '${2:label}s', 'Post Type General Name'),
+		// Le nom au singulier
+		'singular_name'       => _x( '${2:label}', 'Post Type Singular Name'),
+		// Le libellé affiché dans le menu
+		'menu_name'           => __( '${2:label}s'),
+		// Les différents libellés de l'administration
+		'all_items'           => __( 'Touts les ${2:label}s'),
+		'view_item'           => __( 'Voir les ${2:label}s'),
+		'add_new_item'        => __( 'Ajouter un nouveau ${2:label}'),
+		'add_new'             => __( 'Ajouter'),
+		'edit_item'           => __( 'Editer le ${2:label}'),
+		'update_item'         => __( 'Modifier le ${2:label}'),
+		'search_items'        => __( 'Rechercher un ${2:label}'),
+		'not_found'           => __( 'Non trouvé'),
+		'not_found_in_trash'  => __( 'Non trouvé dans la corbeille'),
+	);
+	
+	// On peut définir ici d'autres options pour notre custom post type
+	
+	\$args = array(
+		'label'       	=> __( '${2:label}s'),
+		'description' 	=> __( 'Tous les ${2:label}s'),
+		'labels'      	=> \$labels,
+		// On définit les options disponibles dans l'éditeur de notre custom post type
+		'supports'    	=> array( 'title', 'editor', 'thumbnail', 'custom-fields', 'revisions'),
+		'menu_icon'		=> 'dashicons-pressthis',
+		/* 
+		* Différentes options supplémentaires
+		*/	
+		'hierarchical'	=> false,
+		'show_in_nav_menus'	=> true,
+		'public'      	=> true,	// Default
+		'has_archive' 	=> false,	// Default
+		// 'rewrite'			  => array( 'slug' => '${2:label}s'),
+
+	);
+	
+	// On enregistre notre custom post type qu'on nomme ici "${2:label}" et ses arguments
+	register_post_type( '${2:label}s', \$args );
+
+}
+add_action( 'init', '${1:custom_post}_type', 0 );
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>wp:custom_post</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
