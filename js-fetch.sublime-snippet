@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+fetch(${1:url}, {
+    method: ''${2:method}',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization:
+            'Basic ' + tools.b64encode(`\${pubKey}:\${privKey}`)
+    },
+    body: JSON.stringify(data)
+})
+    .then(res => res.json())
+    .then(res => {
+        resolve(res);
+    })
+    .catch(e => console.error(e));
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>js:fetch</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.js</scope>
+</snippet>

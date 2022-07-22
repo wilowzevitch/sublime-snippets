@@ -1,11 +1,13 @@
 <snippet>
 	<content><![CDATA[
+import React from "react"
 import PropTypes from 'prop-types'
 /* CSS */
 import './${1:componentName}.scss'
 
 const ${1:componentName} = ({ }) => (
-	// JSX
+	<div className="${1:componentName}">
+	</div>
 )
 
 
@@ -13,6 +15,11 @@ const ${1:componentName} = ({ }) => (
 ${1:componentName}.propTypes = {
 	// PropTypes
 }
+/* Default Props */
+${1:componentName}.defaultProps = {
+	// Default Props
+}
+
 export default ${1:componentName}
 
 ]]></content>

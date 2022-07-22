@@ -29,6 +29,10 @@ class ${1:className} extends Component {
 ${1:className}.propTypes = {
 // PropTypes
 }
+/* Default Props */
+${1:componentName}.defaultProps = {
+    // Default Props
+}
 
 /* REDUX */
 const mapStateToProps = state => ({
