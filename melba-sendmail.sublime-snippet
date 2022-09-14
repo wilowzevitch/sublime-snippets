@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+hook('send_mail', array(
+	${1:to},
+	${2:title},
+	${3:msgHTML},
+	${4:fromEmail},
+	${5:fromName},
+	${6:attachements}
+));
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>melba:send_mail</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.php</scope>
+</snippet>
