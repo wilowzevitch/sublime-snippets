@@ -7,79 +7,79 @@
 class ${1:ClassName}
 {
 	
-	function __construct(${2:argument})
+	function __construct()
 	{
-		\$this->\$baseUrl = 'https://${2:ApiBaseUrl}';
-		\$this->\$useragent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)';
-		\$this->\$authType = false;
-		\$this->\$auth = (object)['username' => false, 'password' => false, 'token' => false];
-		\$this->\$authType = false;
+		\$this->\baseUrl = 'https://${2:ApiBaseUrl}';
+		\$this->\useragent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)';
+		\$this->\authType = false;
+		\$this->\auth = (object)['username' => false, 'password' => false, 'token' => false];
+		\$this->\authType = false;
 	}
 
-	private static function request($host, $method, $data=array()) {
-        $handle = curl_init();
-        curl_setopt($handle, CURLOPT_URL, $host);
-        curl_setopt($handle, CURLOPT_USERAGENT, $this->\$useragent);
+	private function request(\$host, \$method, \$data=array()) {
+        \$handle = curl_init();
+        curl_setopt(\$handle, CURLOPT_URL, \$this->\baseUrl.\$host);
+        curl_setopt(\$handle, CURLOPT_USERAGENT, \$this->useragent);
 
         /* Authentication */
         if (\$this->authType == 'Basic')
-        	curl_setopt($handle, CURLOPT_USERPWD, \$this->auth->username . ":" . \$this->auth->password);
+        	curl_setopt(\$handle, CURLOPT_USERPWD, \$this->auth->username . ":" . \$this->auth->password);
         elseif (\$this->authType = 'Baearer')
-        	curl_setopt($handle, CURLOPT_HTTPHEADER,
+        	curl_setopt(\$handle, CURLOPT_HTTPHEADER,
                 array('Authorization: Bearer ' . \$this->auth->token)
             );
 
         /* Récupération des données */
-        if ($method == 'GET') {
-            $options = '?';
-            if (!empty($data)) {
-                foreach ($data as $key => $value) {
-                    $options .= $key.'='.$value;
+        if (\$method == 'GET') {
+            \$options = '?';
+            if (!empty(\$data)) {
+                foreach (\$data as \$key => \$value) {
+                    \$options .= \$key.'='.\$value;
                 }
             }
-            curl_setopt($handle, CURLOPT_URL, $host.rtrim($options, '?'));
+            curl_setopt(\$handle, CURLOPT_URL, \$host.rtrim(\$options, '?'));
         }
 
         /* Envoyer des données */
-        if($method == 'POST') {
-            curl_setopt($handle, CURLOPT_POST, 1);
-            curl_setopt($handle, CURLOPT_POSTFIELDS, json_encode($data));
-            curl_setopt($handle, CURLOPT_HTTPHEADER,
+        if(\$method == 'POST') {
+            curl_setopt(\$handle, CURLOPT_POST, 1);
+            curl_setopt(\$handle, CURLOPT_POSTFIELDS, json_encode(\$data));
+            curl_setopt(\$handle, CURLOPT_HTTPHEADER,
                 array('Content-Type: application/json')
             );
         }
 
         /* Mettre à jour les données */
-        if($method == 'PUT') {
-            curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'PUT');
-            curl_setopt($handle, CURLOPT_POSTFIELDS, json_encode($data));
-            curl_setopt($handle, CURLOPT_HTTPHEADER,
+        if(\$method == 'PUT') {
+            curl_setopt(\$handle, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt(\$handle, CURLOPT_POSTFIELDS, json_encode(\$data));
+            curl_setopt(\$handle, CURLOPT_HTTPHEADER,
                 array('Content-Type: application/json')
             );
         }
 
         /* Supprimer des données */
-        if($method == 'DELETE') {
-            curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        if(\$method == 'DELETE') {
+            curl_setopt(\$handle, CURLOPT_CUSTOMREQUEST, 'DELETE');
         }
         /* TEST */
-        curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt(\$handle, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt(\$handle, CURLOPT_SSL_VERIFYPEER, 0);
         /* Retourner les données */
-        curl_setopt($handle, CURLOPT_RETURNTRANSFER, TRUE);
-        $output = curl_exec($handle);
-        if (curl_error($handle)) {
-            echo '<pre>'.print_r(curl_error($handle), 1).'</pre>';
+        curl_setopt(\$handle, CURLOPT_RETURNTRANSFER, TRUE);
+        \$output = curl_exec(\$handle);
+        if (curl_error(\$handle)) {
+            echo '<pre>'.print_r(curl_error(\$handle), 1).'</pre>';
             /* Vérification d'OpenSSL */
-            if(preg_match("#[0-9]+\.[0-9]+\.[0-9]+#", shell_exec('openssl version'), $version)) {
-                if($version[0] < '1.1.1') {
-                    echo '<pre>Votre version d\'OpenSSL n\'est pas à jour ('.$version[0].' < 1.1.1).</pre>';
+            if(preg_match("#[0-9]+\.[0-9]+\.[0-9]+#", shell_exec('openssl version'), \$version)) {
+                if(\$version[0] < '1.1.1') {
+                    echo '<pre>Votre version d\'OpenSSL n\'est pas à jour ('.\$version[0].' < 1.1.1).</pre>';
                 }
             }
         }
-        curl_close($handle);
+        curl_close(\$handle);
 
-        return $output;
+        return \$output;
     }
 }
 ]]></content>
