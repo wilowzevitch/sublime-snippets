@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+${1:name} ansible_host=${192.168.23.8} ansible_user=freshcore ansible_port=22 container=ispconfig folder=/var/www/${3:erp.freshcore.fr}/web web_user=web${4:N} web_group=client${5:N}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ansible:inventory</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
