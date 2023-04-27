@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+require("conf/conf.php");
+
+\$dsn = "mysql:host=localhost;dbname=".\$dolibarr_main_db_name;
+\$pdo = new PDO(\$dsn, \$dolibarr_main_db_user, \$dolibarr_main_db_pass);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>doli:db_connection</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.php</scope>
+</snippet>

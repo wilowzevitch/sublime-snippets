@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+// include_once DOL_DOCUMENT_ROOT.'/core/class/extrafields.class.php';
+// $extrafields = new ExtraFields(\$this->db);
+\$extrafields->addExtraField('${1:attrname}', '${2:label}', '${3:type(boolean, int, text, datehour, ...)}', ${4:position}, ${5:size}, '${6:elementtype}', ${7:unique}, ${8:required}, '${9:default_value}', ${10:param}, ${11:alwayseditable}, '${12:perms}', ${13:list}, ${14:ishidden}, '${15:conputed}');
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>doli:extrafield</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.php</scope>
+</snippet>

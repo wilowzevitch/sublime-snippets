@@ -26,5 +26,5 @@ export default ${1:componentName}
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>react:component</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.js, text.plain</scope>
+	<scope>source.js, source.jsx, text.plain</scope>
 </snippet>

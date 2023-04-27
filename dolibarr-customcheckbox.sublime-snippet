@@ -1,0 +1,47 @@
+<snippet>
+	<content><![CDATA[
+<style type="text/css">
+    .custom-checkbox {
+        position: relative;
+        display:  inline-block;
+    }
+    .custom-checkbox > input[type=checkbox] {
+        position: absolute;
+        top: 0; left:  0;
+        width: 100%; height:  100%;
+        margin:  0;
+        opacity: 0;
+        z-index: 2;
+        cursor: pointer;
+    }
+</style>
+<div class="custom-checkbox">
+    <input type="checkbox" name="${1:name}" value="1" />
+    <span class="valignmiddle linkobject">
+        <span class="fas fa-toggle-off" style=" color: #999;" title="Désactivé"></span>
+    </span>
+    <span class="valignmiddle linkobject hideobject">
+        <span class="fas fa-toggle-on font-status4" style="" title="Actif"></span>
+    </span>
+</div>
+<script type="text/javascript">
+    $(function() {
+        /* Switch buttons */
+        $('.custom-checkbox > input[type=checkbox]').on('change', function() {
+            let isChecked = $(this).prop('checked');
+            if (isChecked) {
+                $(this).next().addClass('hideobject');
+                $(this).next().next().removeClass('hideobject');
+            } else {
+                $(this).next().removeClass('hideobject');
+                $(this).next().next().addClass('hideobject');
+            }
+        });
+    });
+</script>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>doli:custom_checkbox</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.html</scope>
+</snippet>
