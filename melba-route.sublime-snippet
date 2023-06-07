@@ -1,8 +1,10 @@
 <snippet>
 	<content><![CDATA[
-Melba::isRequest('#${1:route}\$#', function(\$regex) {
-	${2:...content}
+Melba::isRequest('#^${1:route}/?(.*)\$#', function (\$regex) {
+	Melba::setCall(isset(\$regex[1]) && !empty(\$regex[1]) ? '/' . \$regex[1] : '/');
+	include '${2:controllers/controller.php}';
 }, false);
+
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>melba:route</tabTrigger>
