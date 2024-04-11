@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+<!-- ACTION -->
+<?php
+if ($action === 'switch' && !empty($name)) {
+	$value = (bool)GETPOST('value', 'int');
+	dolibarr_set_const($db, $name, $value);
+} ?>
+<!-- VIEW -->
+<?php if (!empty(\$conf->global->${1:CONST})) { ?>
+	<a class="reposition" href="<?= \$_SERVER['PHP_SELF'].'?action=switch&name=MAIN_EMAIL_USECCC&value=0&token='.newToken() ?>">
+		<?= img_picto(\$langs->trans("Activated"), 'switch_on') ?>
+	</a>
+<?php } else { ?>
+	<a class="reposition" href="<?= \$_SERVER['PHP_SELF'].'?action=switch&name=MAIN_EMAIL_USECCC&value=1&token='.newToken() ?>">
+		<?= img_picto(\$langs->trans("Disabled"), 'switch_off') ?>
+	</a>
+<?php } ?>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>doli:switch_constant_btn</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.php</scope> -->
+</snippet>
