@@ -1,12 +1,22 @@
 <snippet>
 	<content><![CDATA[
 hook('send_theme_mail', array(
-	${1:emails},
+	'${1:emails}',
 	'${2:template}',
-	array(
-	),
+	[
+		// Dynamics values
+	],
 	'email expediteur',
-	'expediteur'
+	'expediteur',
+	// Attachments
+	[
+		[
+			filename,
+			content,
+			MIME
+		],
+		...
+	]
 ));
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

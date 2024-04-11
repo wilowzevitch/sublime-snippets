@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+\$.jnotify(${1:r.msg}, $:{2:'error'}, { delay: 2500, fadeSpeed: 500 });
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>doli:jsmessage</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.js</scope>
+</snippet>

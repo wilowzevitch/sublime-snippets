@@ -6,7 +6,15 @@ hook('send_mail', array(
 	${3:msgHTML},
 	${4:fromEmail},
 	${5:fromName},
-	${6:attachements}
+	// Attachments
+	[
+		[
+			filename,
+			content,
+			MIME
+		],
+		...
+	]
 ));
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

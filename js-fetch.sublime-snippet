@@ -1,9 +1,10 @@
 <snippet>
 	<content><![CDATA[
 fetch(${1:url}, {
-    method: ''${2:method}',
+    method: '${2:method}',
+    // mode: 'cors',    // Maybe need 'no-cors'
     headers: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         Authorization:
             'Basic ' + tools.b64encode(`\${pubKey}:\${privKey}`)

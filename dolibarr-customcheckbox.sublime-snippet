@@ -25,16 +25,16 @@
     </span>
 </div>
 <script type="text/javascript">
-    $(function() {
+    \$(function() {
         /* Switch buttons */
-        $('.custom-checkbox > input[type=checkbox]').on('change', function() {
-            let isChecked = $(this).prop('checked');
+        \$('.custom-checkbox > input[type=checkbox]').on('change', function() {
+            let isChecked = \$(this).prop('checked');
             if (isChecked) {
-                $(this).next().addClass('hideobject');
-                $(this).next().next().removeClass('hideobject');
+                \$(this).next().addClass('hideobject');
+                \$(this).next().next().removeClass('hideobject');
             } else {
-                $(this).next().removeClass('hideobject');
-                $(this).next().next().addClass('hideobject');
+                \$(this).next().removeClass('hideobject');
+                \$(this).next().next().addClass('hideobject');
             }
         });
     });
@@ -43,5 +43,5 @@
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>doli:custom_checkbox</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>text.html</scope>
+	<scope>text.html.php</scope>
 </snippet>
