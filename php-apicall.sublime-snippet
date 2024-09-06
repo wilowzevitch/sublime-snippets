@@ -31,13 +31,13 @@ class ${1:ClassName}
 
         /* Récupération des données */
         if (\$method == 'GET') {
-            \$options = '?';
             if (!empty(\$data)) {
+		\$options = '?';
                 foreach (\$data as \$key => \$value) {
-                    \$options .= \$key.'='.\$value;
+                    \$options .= \$key.'='.\$value.'&';
                 }
             }
-            curl_setopt(\$handle, CURLOPT_URL, \$host.rtrim(\$options, '?'));
+            curl_setopt(\$handle, CURLOPT_URL, \$host.rtrim(\$options, '&'));
         }
 
         /* Envoyer des données */
